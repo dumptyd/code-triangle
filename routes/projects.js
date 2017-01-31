@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const profileRoute = function (Project, User, Github, isLoggedIn) {
+const projectRoute = function (Project, User, Github, isLoggedIn) {
     router.post('/', isLoggedIn, function (req, res) {
       let recProject = req.body.project;
       if(!recProject.fullName)
         return res.sendStatus(400);
+      if(recProject.fullName.split('/')[0]!=req.user.github.username)
+        return res.sendStatus(401);
       let preparedUrl = `/repos/${recProject.fullName}`;
       let description = recProject.description;
       let tags = [];
@@ -125,4 +127,4 @@ const profileRoute = function (Project, User, Github, isLoggedIn) {
 
     return router;
   };
-module.exports = profileRoute;
+module.exports = projectRoute;
