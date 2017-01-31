@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const profileRoute = function (User, Github) {
   router.get('/repos', function (req, res) {
-    let preparedUrl = `/users/${req.user}/repos`;
+    if(!req.user)
+      return res.sendStatus(403);
+    let preparedUrl = `/users/${req.user.github.username}/repos`;
     User.findOne({_id: req.user._id}).select('submitted github.username github.avatarUrl').populate('submitted').exec(function(err, user) {
-      Github.get('/users/dumptyd/repos', {}, function (err, status, body, headers) {
+      Github.get(preparedUrl, {}, function (err, status, body, headers) {
         let repos = [];
         body.forEach(repo => {
           let obj = {

@@ -29,7 +29,7 @@ lcAppProfile.controller('profileController', function ($scope, $http, $uibModal,
   $scope.repos = [];
   $scope.user = {};
   $http({
-    url:'/profile/repos',
+    url:'/profile/repos'
   }).then(function(response) {
     $scope.repos = response.data.repos;
     $scope.user = response.data.user;

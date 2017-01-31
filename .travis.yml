@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '6.1'
+deploy:
+  provider: openshift
+  user: dumpty.driller@gmail.com
+  password:
+    secure: nBQFMwtuTxT215fPePIkbA+ysn+E0UIRdhBoct3n+TuVqG2CLixOgfh7gPKyU8VbonS2QZp0qsu74djJ1JvXUuqolhPbOuGc34XNiPDdkKSLSy1fdkCLvVTHXSZAULHBktLrdKt/Yq7SXMQbAQBepVTdo7uujr7rZqAKy5HvNX0HXaQP3WzkPPqJ81lqyjJPlVuQ2934JIxzevv2zz3zLI4pPlKnT3MP8wENa0o2AKK84Vfyx2i30WO5eQpzEXGNRQHQeUq9O3Xk8fDssIyP3WS2EmAjs1pvcoU8b1jLle1LunpKQJhzNEAhAD9v/2PwCVAi9Et3ZP8ziTvQqOjpSJQDkcPnNqAueVaivI2U9ZFQYWUAtHNUMBH4eOc/pWRYf33/KKrqS76EIcN4c+cGKoMo32WFg9B2cz6f5qoLEjKc5AAJ9DgPIEHKVB9ZAMdYke/aNG55Kg2jUKr9x/XwViR4+IfrvSJAYHZkcRQg3UUJc6PnfZQCIfdpsLoHS8az5ilGoc3B9Z1bs+tQCdcmWa2+YHd9oiyXS+UoYUeEkBf7dtc7A5XP6VAR7YLPxbDcw5GPKIo4BYTMhYCQzcsCZTxz0SC5w+c7MphIMhcskQFEiLhRMOLxqSFBPZWMbJMstG9XB+NvSpVJwwN/HWquPWuYwN67sn8kbQa64ojJJaQ=
+  app: codetriangle
+  domain: fireduck
+  on:
+    repo: dumptyd/code-triangle
