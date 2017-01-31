@@ -1,0 +1,152 @@
+.header {
+  height: 50px; 
+  padding:5px;
+  box-sizing: border-box;
+}
+
+.header-container {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.header .header-item {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 1.1em;
+}
+
+.header-item > img {
+  display: inline;
+  max-height: 40px;
+}
+.header-item > img {
+  height:100%; 
+  width: auto;
+}
+
+.header-item > a {
+  color: #000;
+}
+
+.site-name {
+  margin: 50px 0;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 3em;
+  position: relative;
+  display: inline-block;
+}
+
+.site-name a, .site-name a:hover, .site-name-footer a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.abs-description {
+  position:absolute;
+  right: 0;
+  bottom: 0.3em;
+  font-size:0.2em;
+}
+
+.repo-panel {
+  display: inline-block;
+  width: 100%;
+}
+
+.repo-panel .panel-body {
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+
+.repo-panel .panel-heading, .modal-panel-heading {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+@media (min-width: 800px) {
+  .repo-panel {
+    width: 70%;
+  }  
+  .repo-panel .panel-body {
+    font-size: 1.3em;
+  }
+  .site-name {
+    font-size: 5em;
+  }
+  .input-container {
+    width: 60%;
+  }
+}
+
+.projects-container {
+  display:flex; 
+  flex-wrap: wrap;
+}
+
+.col-project {
+  display: flex;
+}
+
+.panel-project {
+  width:100%;
+}
+
+.panel-project > .panel-heading {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.panel-project > .panel-body {
+  font-size: 1.1em;
+}
+
+.my-tags {
+  border: 1px solid #2196F3;
+  color: #2196F3;
+  border-radius: 5px;
+  margin-left: 3px;
+  padding: 1px 2px;
+  font-size: 0.8em;
+}
+
+.my-tags:hover {
+  color: #fff;
+  background: #2196F3;
+  cursor: pointer;
+}
+
+.input-container {
+  padding: 30px 0; 
+  margin-bottom: 20px;
+}
+
+.filter-tag-input, .randomize-btn {
+  width:100%;
+  display:inline-block; 
+}
+
+.divider {
+  border-bottom: 1px solid #EEEEEE;
+  margin: 5px 0;
+}
+
+.margin-top-lg {
+  margin-top: 20px;
+}
+.margin-bottom-lg {
+  margin-bottom: 20px;
+}
+
+.site-name-footer, .site-name-footer > a {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1em;
+}
+
+.footer-links > a {
+}
+
+.footer-links > a:focus, .footer-links > a:hover {
+  text-decoration: none;
+}

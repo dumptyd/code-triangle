@@ -1,0 +1,40 @@
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title Derpflowy
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='../js/main.js')
+    link(rel='stylesheet', href='https://bootswatch.com/paper/bootstrap.min.css')
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.bootstrap.min.css')
+    link(rel='stylesheet', href='../css/main.css')
+  body(ng-app="lcAppMain" ng-controller="indexController")
+    include header.pug
+    .container.text-center.input-container
+      .col-md-8
+        tags-input.filter-tag-input(name="tags" ng-model="filterTags" placeholder="Filter by tags")
+      .col-md-4
+        button.btn.btn-primary.randomize-btn(ng-click="shuffle(projects)") Randomize
+    .container-fluid.projects-container
+      .col-project.col-md-3.col-sm-6.col-xs-12(ng-repeat="project in projects | filterByTags: filterTags")
+        .panel.panel-primary.panel-project
+          .panel-heading {{project.name}}
+          .panel-body 
+            span.small {{project.description}}
+            .divider
+            strong Language: 
+            span.small {{project.language}}
+            br
+            strong Tags:
+            span.my-tags.small(ng-repeat="tag in project.tags" ng-click="addToFilter(tag)") {{tag}}
+            .divider
+            a(href="{{project.githubUrl}}" target="_blank") {{project.fullName}} 
+              i.fa.fa-external-link  
+    include footer.pug

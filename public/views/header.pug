@@ -1,0 +1,19 @@
+.container-fluid.header-container
+  .pull-right.header
+    if (user)
+      .header-item
+        img.img-circle(src=user.github.avatarUrl alt="avatar") 
+      .header-item
+        a(href="/profile") #{user.github.username}
+      .header-item
+        a(href="/logout" title="Log out.") 
+          i.fa.fa-power-off
+    else
+      .header-item
+        a(href="/auth/github" title="Log in with Github.") 
+          i.fa.fa-github-alt.fa-2x
+.container.text-center
+  .text-center.site-name.text-primary
+    a(href="/") Code
+      span.text-primary Triangle
+    .abs-description Find contributors for your projects.

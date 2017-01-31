@@ -1,0 +1,40 @@
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title Derpflowy
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.4.0/ui-bootstrap-tpls.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')
+    script(src='../js/profile.js')
+    link(rel='stylesheet', href='https://bootswatch.com/paper/bootstrap.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.bootstrap.min.css')
+    link(rel="stylesheet", href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css')
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='/css/main.css')
+  body(ng-app="lcAppProfile" ng-controller="profileController")
+    include header.pug
+    .container.text-center
+      .panel.panel-primary.repo-panel.text-left
+        .panel-heading Add a repo to Codetriage
+          .pull-right 
+            i.fa.fa-circle-o-notch.fa-spin.text-center(ng-hide="repos.length")
+        .panel-body
+          .repo(ng-repeat="repo in repos | orderBy : '-inList'")
+            a(href="{{repo.url}}") {{repo.fullName}}
+            .btn-group.pull-right
+              button.btn.btn-primary(ng-if="repo.inList" ng-click="editProject( repo.fullName, $event)") 
+                i.fa.fa-pencil-square-o
+              button.btn.btn-danger(ng-if="repo.inList" ng-click="removeProject( repo.fullName, $event)")
+                i.fa.fa-times
+              button.btn.btn-primary(ng-if="!repo.inList" ng-click="showForm(repo.fullName, $event)")
+                i.fa.fa-plus
+            .clearfix
+            hr
+    include footer.pug

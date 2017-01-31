@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading modal-panel-heading">
+    Edit repo metadata
+  </div>
+  <div class="panel-body">
+    <form name="form.userForm" novalidate>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control input-sm" ng-model="project.name" disabled>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" name="description" class="form-control input-sm" ng-model="project.description" ng-minlength="20" ng-maxlength="300" required>
+        <p ng-show="form.userForm.description.$error.minlength" class="help-block">Description is too short.</p>
+        <p ng-show="form.userForm.description.$error.maxlength" class="help-block">Description is too long.</p>
+      </div>
+      <div class="form-group">
+        <label>Tags</label>
+        <tags-input name="tags" ng-model="project.tags" max-tags="5" min-tags="1" max-tags="5"></tags-input>
+      </div>
+    </form>
+    <div class="text-right">
+      <button class="btn btn-danger" ng-click="cancel()">Cancel</button> 
+      <button class="btn btn-primary" ng-disabled="form.userForm.$invalid" ng-click="submitForm()">OK</button>
+    </div>
+  </div>
+</div>
